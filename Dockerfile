@@ -3,7 +3,6 @@ MAINTAINER David Personette <dperson@dperson.com>
 
 # Install elasticsearch
 RUN export DEBIAN_FRONTEND='noninteractive' && \
-    export JAVA_HOME='/usr/lib/jvm/java-6-openjdk-amd64' && \
     export URL='https://download.elasticsearch.org/elasticsearch/elasticsearch'\
                 && \
     export version='1.5.0' && \
