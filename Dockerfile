@@ -20,8 +20,8 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     echo '\nhttp.cors.enabled: true\n#http.cors.allow-origin:' >> \
                 /opt/elasticsearch/config/elasticsearch.yml && \
     chown -Rh elasticsearch. /opt/elasticsearch && \
-    apt-get purge ca-certificates curl && \
-    apt-get autoremove && apt-get clean && \
+    apt-get purge -qqy ca-certificates curl && \
+    apt-get autoremove -qqy && apt-get clean -qqy && \
     rm -rf /tmp/* /var/lib/apt/lists/* elasticsearch-${version}.tar.gz
 COPY elasticsearch.sh /usr/bin/
 
