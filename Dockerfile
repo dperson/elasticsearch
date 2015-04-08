@@ -23,8 +23,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     rm -rf /tmp/* /var/lib/apt/lists/* elasticsearch-${version}.tar.gz
 COPY elasticsearch.sh /usr/bin/
 
-EXPOSE 9200
-EXPOSE 9300
+EXPOSE 9200 9300
 
 VOLUME ["/opt/elasticsearch/data"]
 
