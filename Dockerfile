@@ -3,10 +3,9 @@ MAINTAINER David Personette <dperson@dperson.com>
 
 # Install elasticsearch
 RUN export DEBIAN_FRONTEND='noninteractive' && \
-    export URL='https://download.elasticsearch.org/elasticsearch/elasticsearch'\
-                && \
-    export version='1.5.0' && \
-    export sha1sum='07987acd48c754b8e7db6829314b56e1928b5e1b' && \
+    export URL='https://download.elastic.co/elasticsearch/elasticsearch' && \
+    export version='1.5.2' && \
+    export sha1sum='2595e14de7133fa23db90f83c83c84c0ea08468a' && \
     groupadd -r elasticsearch && useradd -r -g elasticsearch elasticsearch && \
     apt-get update -qq && \
     apt-get install -qqy --no-install-recommends ca-certificates curl \
