@@ -62,7 +62,9 @@ shift $(( OPTIND - 1 ))
 export JAVA_HOME='/usr/lib/jvm/java-6-openjdk-amd64'
 chown -Rh elasticsearch. /opt/elasticsearch
 
-if [[ $# -ge 1 && -x $(which $1 2>&-) ]]; then
+if ps -ef | grep -q elasticsearch; then
+    echo "Service already running, please restart container to apply changes"
+elif [[ $# -ge 1 && -x $(which $1 2>&-) ]]; then
     exec "$@"
 elif [[ $# -ge 1 ]]; then
     echo "ERROR: command not found: $1"
