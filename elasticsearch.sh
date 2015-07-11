@@ -62,7 +62,7 @@ shift $(( OPTIND - 1 ))
 [[ "${TIMEZONE:-""}" ]] && timezone "$TIMEZONE"
 
 export JAVA_HOME='/usr/lib/jvm/java-6-openjdk-amd64'
-chown -Rh elasticsearch. /opt/elasticsearch
+chown -Rh elasticsearch. /opt/elasticsearch/data
 
 if [[ $# -ge 1 && -x $(which $1 2>&-) ]]; then
     exec "$@"
