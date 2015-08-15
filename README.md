@@ -1,4 +1,4 @@
-[![logo](https://www.elastic.co/static/img/logo-elastic.png)](https://www.elastic.co/)
+[![logo](https://raw.githubusercontent.com/dperson/elasticsearch/master/logo.png)](https://www.elastic.co/)
 
 # Elasticsearch
 
