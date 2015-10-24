@@ -15,8 +15,8 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     sha1sum elasticsearch-${version}.tar.gz | grep -q "$sha1sum" && \
     tar -xf elasticsearch-${version}.tar.gz -C /tmp && \
     mv /tmp/elasticsearch-* /opt/elasticsearch && \
-    echo '\nhttp.cors.enabled: true\n#http.cors.allow-origin:' >> \
-                /opt/elasticsearch/config/elasticsearch.yml && \
+    echo '\nhttp.cors.enabled: true\n#http.cors.allow-origin:' \
+                >>/opt/elasticsearch/config/elasticsearch.yml && \
     chown -Rh elasticsearch. /opt/elasticsearch && \
     apt-get purge -qqy curl && \
     apt-get autoremove -qqy && apt-get clean -qqy && \
