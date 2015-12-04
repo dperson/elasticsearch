@@ -3,10 +3,10 @@ MAINTAINER David Personette <dperson@dperson.com>
 
 # Install elasticsearch
 RUN export DEBIAN_FRONTEND='noninteractive' && \
-    export version='2.0.0' && \
     export URL='https://download.elastic.co/elasticsearch/release/org' && \
     export URL="$URL/elasticsearch/distribution/tar/elasticsearch/$version" && \
-    export sha1sum='e369d8579bd3a2e8b5344278d5043f19f14cac88' && \
+    export version='2.1.0' && \
+    export sha1sum='b6d681b878e3a906fff8c067b3cfe855240bffbb' && \
     groupadd -r elasticsearch && useradd -r -g elasticsearch elasticsearch && \
     apt-get update -qq && \
     apt-get install -qqy --no-install-recommends ca-certificates curl \
