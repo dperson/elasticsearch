@@ -8,9 +8,11 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     export URL='https://download.elasticsearch.org/elasticsearch/release/org'&&\
     export URL="$URL/elasticsearch/distribution/tar/elasticsearch/$version" && \
     groupadd -r elasticsearch && useradd -r -g elasticsearch elasticsearch && \
+    echo "deb http://httpredir.debian.org/debian jessie-backports main" \
+                >>/etc/apt/sources.list && \
     apt-get update -qq && \
     apt-get install -qqy --no-install-recommends ca-certificates curl \
-                openjdk-7-jre \
+                openjdk-8-jre \
                 $(apt-get -s dist-upgrade|awk '/^Inst.*ecurity/ {print $2}') &&\
     curl -LOC- -s $URL/elasticsearch-${version}.tar.gz && \
     sha1sum elasticsearch-${version}.tar.gz | grep -q "$sha1sum" && \
