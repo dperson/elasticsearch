@@ -68,8 +68,7 @@ shift $(( OPTIND - 1 ))
 [[ "${GROUPID:-""}" =~ ^[0-9]+$ ]] && groupmod -g $GROUPID elasticsearch
 
 export JAVA_HOME='/usr/lib/jvm/java-6-openjdk-amd64'
-chown -Rh elasticsearch. /opt/elasticsearch /tmp/*elasticsearch* 2>&1 |
-            grep -iv 'Read-only' || :
+chown -Rh elasticsearch. /opt/elasticsearch 2>&1 | grep -iv 'Read-only' || :
 
 if [[ $# -ge 1 && -x $(which $1 2>&-) ]]; then
     exec "$@"
