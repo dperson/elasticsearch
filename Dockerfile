@@ -22,6 +22,8 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     (echo '\nhttp.cors.enabled: true\n#http.cors.allow-origin:' && \
     echo 'network.host: 0.0.0.0') \
                 >>/opt/elasticsearch/config/elasticsearch.yml && \
+    cp /opt/elasticsearch/config/logging.yml \
+                /opt/elasticsearch/config/logging.yml.orig && \
     sed -i '/org.apache.http/,+14d; /index_search_slow_log_file/,$d; /index/d' \
                 /opt/elasticsearch/config/logging.yml && \
     chown -Rh elasticsearch. /opt/elasticsearch && \
