@@ -64,8 +64,8 @@ done
 shift $(( OPTIND - 1 ))
 
 [[ "${TZ:-""}" ]] && timezone "$TZ"
-[[ "${USERID:-""}" =~ ^[0-9]+$ ]] && usermod -u $USERID elasticsearch
-[[ "${GROUPID:-""}" =~ ^[0-9]+$ ]] && groupmod -g $GROUPID elasticsearch
+[[ "${USERID:-""}" =~ ^[0-9]+$ ]] && usermod -u $USERID -o elasticsearch
+[[ "${GROUPID:-""}" =~ ^[0-9]+$ ]] && groupmod -g $GROUPID -o elasticsearch
 
 export JAVA_HOME='/usr/lib/jvm/java-6-openjdk-amd64'
 chown -Rh elasticsearch. /opt/elasticsearch 2>&1 | grep -iv 'Read-only' || :
