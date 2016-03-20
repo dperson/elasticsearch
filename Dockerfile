@@ -3,8 +3,8 @@ MAINTAINER David Personette <dperson@dperson.com>
 
 # Install elasticsearch
 RUN export DEBIAN_FRONTEND='noninteractive' && \
-    export version='2.2.0' && \
-    export sha1sum='4bd3ef681e70faefe3a66c6eb3419b5d4a0e2714' && \
+    export version='2.2.1' && \
+    export sha1sum='6d46526b71201eb34d7b883e954ad0f278f9f8b1' && \
     export URL='https://download.elasticsearch.org/elasticsearch/release/org'&&\
     export URL="$URL/elasticsearch/distribution/tar/elasticsearch/$version" && \
     groupadd -r elasticsearch && useradd -r -g elasticsearch elasticsearch && \
