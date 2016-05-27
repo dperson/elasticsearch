@@ -65,7 +65,7 @@ shift $(( OPTIND - 1 ))
 [[ "${USERID:-""}" =~ ^[0-9]+$ ]] && usermod -u $USERID -o elasticsearch
 [[ "${GROUPID:-""}" =~ ^[0-9]+$ ]] && groupmod -g $GROUPID -o elasticsearch
 
-export JAVA_HOME='/usr/lib/jvm/java-6-openjdk-amd64'
+export JAVA_HOME='/usr/lib/jvm/java-8-openjdk-amd64'
 chown -Rh elasticsearch. /opt/elasticsearch 2>&1 | grep -iv 'Read-only' || :
 
 if [[ $# -ge 1 && -x $(which $1 2>&-) ]]; then
