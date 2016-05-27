@@ -35,6 +35,6 @@ COPY elasticsearch.sh /usr/bin/
 EXPOSE 9200 9300
 
 VOLUME ["/opt/elasticsearch/config", "/opt/elasticsearch/data", \
-            "/opt/elasticsearch/logs"]
+            "/opt/elasticsearch/logs", "/opt/elasticsearch/plugins"]
 
 ENTRYPOINT ["elasticsearch.sh"]
