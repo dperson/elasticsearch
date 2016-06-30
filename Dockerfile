@@ -5,8 +5,8 @@ MAINTAINER David Personette <dperson@gmail.com>
 RUN export DEBIAN_FRONTEND='noninteractive' && \
     export version='2.3.3' && \
     export sha1sum='59ad28b5d21801c67216ea1ee0c8ddf36a133456' && \
-    export URL='https://download.elasticsearch.org/elasticsearch/release/org'&&\
-    export URL="$URL/elasticsearch/distribution/tar/elasticsearch/$version" && \
+    export url='https://download.elasticsearch.org/elasticsearch/release/org'&&\
+    export url="$url/elasticsearch/distribution/tar/elasticsearch/$version" && \
     groupadd -r elasticsearch && \
     useradd -c 'Elasticsearch' -d /opt/elasticsearch -g elasticsearch -r \
                 elasticsearch && \
@@ -17,7 +17,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
                 openjdk-8-jre \
                 $(apt-get -s dist-upgrade|awk '/^Inst.*ecurity/ {print $2}') &&\
     echo "downloading: elasticsearch-${version}.tar.gz ..." && \
-    curl -LOC- -s $URL/elasticsearch-${version}.tar.gz && \
+    curl -LOC- -s ${url}/elasticsearch-${version}.tar.gz && \
     sha1sum elasticsearch-${version}.tar.gz | grep -q "$sha1sum" && \
     tar -xf elasticsearch-${version}.tar.gz -C /tmp && \
     mv /tmp/elasticsearch-* /opt/elasticsearch && \
