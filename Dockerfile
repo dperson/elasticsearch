@@ -10,8 +10,6 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     groupadd -r elasticsearch && \
     useradd -c 'Elasticsearch' -d /opt/elasticsearch -g elasticsearch -r \
                 elasticsearch && \
-    echo "deb http://httpredir.debian.org/debian stretch-backports main" \
-                >>/etc/apt/sources.list && \
     apt-get update -qq && \
     apt-get install -qqy --no-install-recommends ca-certificates curl \
                 openjdk-8-jre \
