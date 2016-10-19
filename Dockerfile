@@ -12,7 +12,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
                 elasticsearch && \
     apt-get update -qq && \
     apt-get install -qqy --no-install-recommends ca-certificates curl \
-                openjdk-8-jre \
+                openjdk-8-jre psutils \
                 $(apt-get -s dist-upgrade|awk '/^Inst.*ecurity/ {print $2}') &&\
     echo "downloading: elasticsearch-${version}.tar.gz ..." && \
     curl -LOC- -s ${url}/elasticsearch-${version}.tar.gz && \
