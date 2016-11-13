@@ -3,9 +3,9 @@ MAINTAINER David Personette <dperson@gmail.com>
 
 # Install elasticsearch
 RUN export DEBIAN_FRONTEND='noninteractive' && \
-    export version='2.4.1' && \
-    export sha1sum='6a6acfc7bf7b4354dc6136daea54db1c844d632f' && \
-    export url='https://download.elasticsearch.org/elasticsearch/release/org'&&\
+    export version='5.0.0' && \
+    export sha1sum='d25f6547bccec9f0b5ea7583815f96a6f50849e0' && \
+    export url='https://artifacts.elastic.co/downloads/elasticsearch'&&\
     export url="$url/elasticsearch/distribution/tar/elasticsearch/$version" && \
     groupadd -r elasticsearch && \
     useradd -c 'Elasticsearch' -d /opt/elasticsearch -g elasticsearch -r \
