@@ -19,7 +19,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     tar -xf elasticsearch-${version}.tar.gz -C /tmp && \
     mv /tmp/elasticsearch-* /opt/elasticsearch && \
     (echo '\nhttp.cors.enabled: true\n#http.cors.allow-origin:' && \
-    echo 'network.host: 0.0.0.0') \
+    echo 'http.host: 0.0.0.0') \
                 >>/opt/elasticsearch/config/elasticsearch.yml && \
     chown -Rh elasticsearch. /opt/elasticsearch && \
     apt-get purge -qqy curl && \
