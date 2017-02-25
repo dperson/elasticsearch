@@ -3,8 +3,8 @@ MAINTAINER David Personette <dperson@gmail.com>
 
 # Install elasticsearch
 RUN export DEBIAN_FRONTEND='noninteractive' && \
-    export version='5.1.2' && \
-    export sha1sum='ae3d5b0d631a61e72b88f930b3cc9f8475a766d6' && \
+    export version='5.2.1' && \
+    export sha1sum='93bae92937075fed18ac4a4dd57798aca792af03' && \
     export url='https://artifacts.elastic.co/downloads/elasticsearch' && \
     groupadd -r elasticsearch && \
     useradd -c 'Elasticsearch' -d /opt/elasticsearch -g elasticsearch -r \
