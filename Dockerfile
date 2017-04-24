@@ -17,7 +17,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     echo "downloading: $file ..." && \
     curl -LOSs ${url}/$file && \
     sha1sum $file | grep -q "$sha1sum" || \
-    { echo "expected $sha1sum, got $(sha1sum $file)"; exit; } && \
+    { echo "expected $sha1sum, got $(sha1sum $file)"; exit 13; } && \
     tar -xf $file -C /tmp && \
     mv /tmp/elasticsearch-* /opt/elasticsearch && \
     (echo '\nhttp.cors.enabled: true\n#http.cors.allow-origin:' && \
