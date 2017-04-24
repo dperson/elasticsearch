@@ -14,7 +14,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
                 openjdk-8-jre procps \
                 $(apt-get -s dist-upgrade|awk '/^Inst.*ecurity/ {print $2}') &&\
     echo "downloading: elasticsearch-${version}.tar.gz ..." && \
-    curl -LOC- -s ${url}/elasticsearch-${version}.tar.gz && \
+    curl -LOSs ${url}/elasticsearch-${version}.tar.gz && \
     sha1sum elasticsearch-${version}.tar.gz | grep -q "$sha1sum" && \
     tar -xf elasticsearch-${version}.tar.gz -C /tmp && \
     mv /tmp/elasticsearch-* /opt/elasticsearch && \
