@@ -13,10 +13,12 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     apt-get install -qqy --no-install-recommends ca-certificates curl \
                 openjdk-8-jre procps \
                 $(apt-get -s dist-upgrade|awk '/^Inst.*ecurity/ {print $2}') &&\
-    echo "downloading: elasticsearch-${version}.tar.gz ..." && \
-    curl -LOSs ${url}/elasticsearch-${version}.tar.gz && \
-    sha1sum elasticsearch-${version}.tar.gz | grep -q "$sha1sum" && \
-    tar -xf elasticsearch-${version}.tar.gz -C /tmp && \
+    file="elasticsearch-${version}.tar.gz" && \
+    echo "downloading: $file ..." && \
+    curl -LOSs ${url}/$file && \
+    sha1sum $file | grep -q "$sha1sum" || \
+    { echo "expected $sha1sum, got $(sha1sum $file)"; exit; } && \
+    tar -xf $file -C /tmp && \
     mv /tmp/elasticsearch-* /opt/elasticsearch && \
     (echo '\nhttp.cors.enabled: true\n#http.cors.allow-origin:' && \
     echo 'http.host: 0.0.0.0') \
@@ -24,7 +26,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     chown -Rh elasticsearch. /opt/elasticsearch && \
     apt-get purge -qqy curl && \
     apt-get autoremove -qqy && apt-get clean -qqy && \
-    rm -rf /tmp/* /var/lib/apt/lists/* elasticsearch-${version}.tar.gz
+    rm -rf /tmp/* /var/lib/apt/lists/* $file
 COPY elasticsearch.sh /usr/bin/
 
 EXPOSE 9200 9300
