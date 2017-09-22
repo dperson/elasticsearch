@@ -23,6 +23,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     (echo '\nhttp.cors.enabled: true\n#http.cors.allow-origin:' && \
     echo 'http.host: 0.0.0.0') \
                 >>/opt/elasticsearch/config/elasticsearch.yml && \
+    sed -i 's/^\(-Xm[sx]\).*/\1512m/' /opt/elasticsearch/config/jvm.options && \
     chown -Rh elasticsearch. /opt/elasticsearch && \
     apt-get purge -qqy curl && \
     apt-get autoremove -qqy && apt-get clean -qqy && \
