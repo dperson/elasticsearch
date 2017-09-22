@@ -11,7 +11,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
                 elasticsearch && \
     apt-get update -qq && \
     apt-get install -qqy --no-install-recommends ca-certificates curl \
-                openjdk-8-jre libjna-java procps \
+                openjdk-8-jre procps \
                 $(apt-get -s dist-upgrade|awk '/^Inst.*ecurity/ {print $2}') &&\
     file="elasticsearch-${version}.tar.gz" && \
     echo "downloading: $file ..." && \
