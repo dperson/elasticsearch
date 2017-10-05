@@ -3,8 +3,8 @@ MAINTAINER David Personette <dperson@gmail.com>
 
 # Install elasticsearch
 RUN export DEBIAN_FRONTEND='noninteractive' && \
-    export version='5.6.1' && \
-    export sha1sum='31168d3e6383dd5aef03b150fc718c789b6ad1dd' && \
+    export version='5.6.2' && \
+    export shasum='a20cd6607cc9fd94b37c8592b2aaaede4136349d66175581ccba999' && \
     export url='https://artifacts.elastic.co/downloads/elasticsearch' && \
     groupadd -r elasticsearch && \
     useradd -c 'Elasticsearch' -d /opt/elasticsearch -g elasticsearch -r \
@@ -16,8 +16,8 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     file="elasticsearch-${version}.tar.gz" && \
     echo "downloading: $file ..." && \
     curl -LOSs ${url}/$file && \
-    sha1sum $file | grep -q "$sha1sum" || \
-    { echo "expected $sha1sum, got $(sha1sum $file)"; exit 13; } && \
+    sha512sum $file | grep -q "$shasum" || \
+    { echo "expected $shasum, got $(sha512sum $file)"; exit 13; } && \
     tar -xf $file -C /tmp && \
     mv /tmp/elasticsearch-* /opt/elasticsearch && \
     (echo '\nhttp.cors.enabled: true\n#http.cors.allow-origin:' && \
