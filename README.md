@@ -41,7 +41,7 @@ ENVIRONMENT VARIABLES (only available with `docker run`)
 ## Examples
 
 Any of the commands can be run at creation with `docker run` or later with
-`docker exec -it elasticsearch.sh` (as of version 1.3 of docker).
+`docker exec -it elasticsearch elasticsearch.sh` (as of version 1.3 of docker).
 
 ### Setting the Timezone
 
