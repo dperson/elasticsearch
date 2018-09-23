@@ -32,7 +32,7 @@ When started Elasticsearch container will listen on ports 9200 and 9300.
 
     The 'command' (if provided and valid) will be run instead of elasticsearch
 
-ENVIRONMENT VARIABLES (only available with `docker run`)
+ENVIRONMENT VARIABLES
 
  * `TZ` - As above, configure the zoneinfo timezone, IE `EST5EDT`
  * `USERID` - Set the UID for the app user
