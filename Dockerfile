@@ -4,7 +4,7 @@ MAINTAINER David Personette <dperson@gmail.com>
 # Install elasticsearch
 RUN export DEBIAN_FRONTEND='noninteractive' && \
     export version='7.2.0' && \
-    export shasum='9f11386334c9344cb92206c367652ca36cb2161e0a301b1b011c5c1' && \
+    export shasum='f6d5017dd95500b77afa48986d65f48ec08a5d1a6e9bff7f35d4641' && \
     export url='https://artifacts.elastic.co/downloads/elasticsearch' && \
     groupadd -r elasticsearch && \
     useradd -c 'Elasticsearch' -d /opt/elasticsearch -g elasticsearch -r \
