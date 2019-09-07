@@ -10,8 +10,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     useradd -c 'Elasticsearch' -d /opt/elasticsearch -g elasticsearch -r \
                 elasticsearch && \
     apt-get update -qq && \
-    apt-get install -qqy --no-install-recommends ca-certificates curl \
-                openjdk-11-jre procps \
+    apt-get install -qqy --no-install-recommends ca-certificates curl procps \
                 $(apt-get -s dist-upgrade|awk '/^Inst.*ecurity/ {print $2}') &&\
     file="elasticsearch-${version}-linux-x86_64.tar.gz" && \
     echo "downloading: $file ..." && \
