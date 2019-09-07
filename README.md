@@ -27,12 +27,14 @@ When started Elasticsearch container will listen on ports 9200 and 9300.
     Usage: elasticsearch.sh [-opt] [command]
     Options (fields in '[]' are optional, '<>' are required):
         -h          This help
+        -t ""       Configure timezone
+                    possible arg: "[timezone]" - zoneinfo timezone for container
 
     The 'command' (if provided and valid) will be run instead of elasticsearch
 
 ENVIRONMENT VARIABLES
 
- * `TZ` - Configure the zoneinfo timezone, IE `EST5EDT`
+ * `TZ` - As above, configure the zoneinfo timezone, IE `EST5EDT`
  * `USERID` - Set the UID for the app user
  * `GROUPID` - Set the GID for the app user
 
@@ -43,8 +45,20 @@ Any of the commands can be run at creation with `docker run` or later with
 
 ### Setting the Timezone
 
+    sudo docker run -it -p 9200:9200 -p 9300:9300 -d dperson/elasticsearch \
+                -t EST5EDT
+
+OR using `environment variables`
+
     sudo docker run -it -p 9200:9200 -p 9300:9300 -e TZ=EST5EDT -d \
                 dperson/elasticsearch
+
+Will get you the same settings as
+
+    sudo docker run -it --name es -p 9200:9200 -p 9300:9300 -d \
+                dperson/elasticsearch
+    sudo docker exec -it es elasticsearch.sh -t EST5EDT ls -AlF /etc/localtime
+    sudo docker restart es
 
 ## Complex configuration
 
